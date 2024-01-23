@@ -1,0 +1,13 @@
+# ninja log v5
+5	253	1705914943387846123	CMakeFiles/Project2.dir/main.cpp.o	10dc491bdfe55575
+261	291	1706001895939457980	Project2	389e2c5504a0145d
+6	327	1706001835932103613	CMakeFiles/Project2.dir/testnewMap.cpp.o	231fc1a08ea9f88
+6	260	1706001895906988481	CMakeFiles/Project2.dir/Map.cpp.o	96703aeb6768b49c
+0	37	1706002112812458009	build.ninja	5827c5fb1cccfa19
+0	247	1706001884174199617	CMakeFiles/Project2.dir/GamerMap.cpp.o	6d3a7664ef5a1666
+6	425	1706001691924371100	CMakeFiles/Project2.dir/testMap.cpp.o	624e3ed69e4fda72
+0	243	1706001884169466813	CMakeFiles/Project2.dir/testGamerMap.cpp.o	f85ca7e263cd994f
+7	327	1706001835929971566	CMakeFiles/Project2.dir/newMap.cpp.o	c9bf728c3930c408
+1	252	1706002125668672361	CMakeFiles/Project2.dir/newMap.cpp.o	c9bf728c3930c408
+6	215	1706002155160562739	CMakeFiles/Project2.dir/testnewMap.cpp.o	231fc1a08ea9f88
+215	245	1706002155192495279	Project2	f03b82ed475100ba
