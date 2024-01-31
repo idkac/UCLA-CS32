@@ -1,0 +1,191 @@
+﻿Andrew Sun
+006159649
+
+
+The doubly-linked list contains a dummy node as the head and a tailsGuard similar to the dummy node that is at the end of the list. The list automatically orders itself when it is inserted. Each of the list node is a struct called ValueHolder which holds both the key and the value, which can be accessed through the struct’s own methods. 
+
+
+Pseudocode:
+
+
+Copy constructor:
+Map::Map(const Map& other)
+{
+        Set up dummy, size and tailsGuard
+        Point dummy to tailsGuard
+        Get dummy from other
+        For loop (repeats for each node in other)
+                Insert key and value
+                Iterate pointer
+}
+
+
+bool Map::insert(const KeyType &key, const ValueType &value)
+{
+        If key already exists
+                Return false
+        Else
+                Find position in list where key should be 
+                Create new node with values
+                Insert node
+                Increase size
+                Return true
+}
+
+
+bool Map::update(const KeyType &key, const ValueType &value)
+{
+        If key does not exist
+                Return false
+        Else
+                Find position of key
+                Update value
+                        Return true
+                Else 
+                        Return false
+}
+
+
+bool Map::erase(const KeyType &key)
+{
+        If key does not exist
+                Return false
+        Else
+                Find key
+                If node has right name
+                        Reorder pointers 
+                        Delete node
+                        Reduce size
+                        Return true
+                Else
+                        Return false
+}
+
+
+bool Map::contains(const KeyType &key) const
+{
+        Start at dummy
+        If next node is tailsGuard
+                Return false
+        Else
+                Iterate by one
+        While next node is not tailsGuard and current node does not have key
+                Iterate node
+        Return (node contain key)
+}
+
+
+bool Map::get(int i, KeyType& key, ValueType& value) const
+{
+        If i is larger than list
+                Return false
+        Else
+                Start at dummy
+                //since list is already ordered, we can just count from the start with for loop
+                Update key and value
+                Return true
+}
+
+
+bool merge(const Map& m1, const Map& m2, Map& result)
+{
+        Set returnVal to true for now
+        Copy m1 and m2 into temporary Maps
+        While m1temp and m2temp size are not 0
+                Get first item from either m1temp or m2temp
+                Check if item key exists in other map
+                        If exists, insert into result and delete both nodes from m1 and m2
+                        Else
+                                Dont insert, set returnVal to false
+                If item not exist in other map
+                        Insert item
+                        Delete from map which item came from
+        Return returnVal
+}
+
+
+void reassign(const Map& m, Map& result)
+{
+        Set up temporary values and get the value of the first node
+        Loop for m.size -1
+                Swap the values of nodes at position i and i+1 using insertOrUpdate
+                //if start is a1, b2, c3, d4
+                //end result is a2, b3, c4, d3
+        Get the key of the last node
+        Update last node with value of first node we got from the start
+        //end result should be a2, b3, c4, d1
+}
+
+
+
+
+Test Cases:
+            Map m;
+            assert(m.size() == 0); //check initial map size
+        assert(!m.contains(""); //check if contains function recognizes dummy pointers as not part of list
+        assert(!m.update("test", 2)); //check update function
+        assert(!m.update("", 2)); //check update function for dummy pointer
+        assert(!m.erase("test")); //check erase function
+        assert(!m.erase("")); //check erase function for empty key
+assert(m.insert("a", 1)); //check insert function 
+            assert(m.insert("b", 2));
+            assert(m.size() == 2); //check size function
+        ValueType test;
+        KeyType test2;
+        assert(m.get(0, test2, test) && test2 == "a" && test == 1); //check get(i) function
+        assert(m.update("a", 2) && m.get("a", test) && test == 2); //check update function and get(key) function
+        assert(m.erase("a")); //check erase function
+        assert(!m.contains("a")); //check erase function
+        assert(!m.erase("")); //check erase function for empty string
+        
+        Map test1;
+        test1.insert("a", 1);
+        test1.insert("b", 2);
+        assert(!test1.insert("a", 3)); //check insert function for repeat keys
+        Map test2;
+        test1.insert("c", 3); 
+        test1.swap(test2); //check swap function
+        assert(test1.size() == 1 && test1.contains("c"));
+        assert(test2.size() == 2 && test2.contains("a") && test2.contains("b"));
+        Map test3;
+        test1.swap(test3);
+        assert(test1.size() == 0 && !test1.contains("c")); //check swap function for empty maps
+        
+        Map test1;
+        test1.insert("a", 1);
+        test1.insert("b", 2);
+        Map test2;
+        test2 = test1; //check copy constructor
+        assert(test2.size() == 2 && test2.contains("a") && test2.contains("b"));
+        Map test3;
+        test3.insert("C", 3);
+test3 = test1; //check assignment operator
+        assert(test3.size() == 2 && test3.contains("a") && test3.contains("b"));
+
+
+        Map test1;
+        test1.insert("a", 1);
+        test1.insert("b", 2);
+test1.insert("c", 3);
+Map test2;
+        test1.insert("a", 12);
+        test1.insert("b", 2);
+test1.insert("d", 3);
+Map result;
+assert(!merge(test1, test2, result) && merge.contains("b") && merge.contains("c") &&     merge.contains("d")); //check merge
+
+
+Map test1;
+test1.insert("a", 1);
+        test1.insert("b", 2);
+test1.insert("c", 3);
+test1.insert(“d”, 4);
+Map result;
+reassign(test1, result); 
+for (int i = 0; i < test1.size(); i++)
+{
+        KeyType k;
+        ValueType v;
+        test1.get(i, k, v);
+        std::cout << k << " " << v << std::endl;
+}  //check output of reassign

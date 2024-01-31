@@ -1,0 +1,3 @@
+/Users/idkac/Desktop/Coding Projects/ucla cs32/Project2real/cmake-build-debug/CMakeFiles/Project2real.dir
+/Users/idkac/Desktop/Coding Projects/ucla cs32/Project2real/cmake-build-debug/CMakeFiles/edit_cache.dir
+/Users/idkac/Desktop/Coding Projects/ucla cs32/Project2real/cmake-build-debug/CMakeFiles/rebuild_cache.dir
