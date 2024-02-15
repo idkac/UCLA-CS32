@@ -1,0 +1,3 @@
+/Users/idkac/Desktop/Coding Projects/ucla cs32/Homework 3/build/CMakeFiles/Homework_3.dir
+/Users/idkac/Desktop/Coding Projects/ucla cs32/Homework 3/build/CMakeFiles/edit_cache.dir
+/Users/idkac/Desktop/Coding Projects/ucla cs32/Homework 3/build/CMakeFiles/rebuild_cache.dir
