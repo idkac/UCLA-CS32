@@ -31,6 +31,7 @@ class Player: public Actor
         virtual bool doSomething();
         int determineDirection(int key);
         int isDirection(int value);
+        void newPosition(int direction, int& x, int& y);
 };
 
 

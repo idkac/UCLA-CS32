@@ -62,7 +62,6 @@ int StudentWorld::move()
     {
         a -> doSomething();
     }
-
 	return GWSTATUS_CONTINUE_GAME;
 }
 

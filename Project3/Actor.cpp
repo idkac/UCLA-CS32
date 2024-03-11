@@ -9,6 +9,35 @@ StudentWorld* Actor::getWorld()
     return m_world;
 }
 
+void Player::newPosition(int direction,int& x, int &y)
+{
+    switch (direction)
+    {
+        case up:
+        {
+            y++;
+            break;
+        }
+        case down:
+        {
+            y--;
+            break;
+        }
+        case right:
+        {
+            x++;
+            break;
+        }
+        case left:
+        {
+            x--;
+            break;
+        }
+        default:
+            break;
+    }
+}
+
 bool Player::doSomething()
 {
     int key;
@@ -18,9 +47,9 @@ bool Player::doSomething()
     {
         int direction = determineDirection(key);
         setDirection(direction);
-        double x;
-        double y;
-        getPositionInThisDirection(getDirection(), 1, x, y);
+        int x = getX();
+        int y = getY();
+        newPosition(direction, x, y);
         if (getWorld() -> getActor(x, y) != nullptr)
             return false;
         else
